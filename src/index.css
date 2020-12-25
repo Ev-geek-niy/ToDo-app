@@ -191,11 +191,8 @@ form {
 }
 
 .delete-stuff {
+  text-align: center;
   display: flex;
   justify-content: space-evenly;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: -35px;
   color: #e5e5e5;
 }

@@ -43,15 +43,20 @@ export default class TodoList extends React.Component {
 
     render(){
         return(
-            <div className="todo-list">
-                <div className="todo-header">
-                    CringeDo
+            <div>
+                <div className="todo-list">
+                    <div className="todo-header">
+                        CringeDo
+                    </div>
+                    <div className="todo-body">
+                        {this.state.todos.map(todo => (
+                            <Todo key={todo.id} toggleComplete={() => this.toggleComplete(todo.id)} handleDelete={() => this.handleDelete(todo.id)} todo={todo} />
+                        ))}
+                        <TodoForm onSubmit={this.addTodo}/>
+                    </div>
                 </div>
-                {this.state.todos.map(todo => (
-                    <Todo key={todo.id} toggleComplete={() => this.toggleComplete(todo.id)} handleDelete={() => this.handleDelete(todo.id)} todo={todo} />
-                ))}
-                <TodoForm onSubmit={this.addTodo}/>
-                <div>
+                
+                <div className="delete-stuff">
                     <button className="btn delete" onClick={this.removeAllTodosThatAreComplete}>
                         Удалить выполненные задачи
                     </button>
