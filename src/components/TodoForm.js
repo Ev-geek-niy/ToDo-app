@@ -30,10 +30,13 @@ export default class TodoForm extends React.Component {
 
     render() {
         return (
+            <div className="new-task-creator">
             <form onSubmit={this.handleSubmit}>
-                <input name="text" value={this.state.text} onChange={this.handleChange} />
-                <button onClick={this.handleSubmit}>add</button>
+                <input className="newlist" placeholder="Создать новый" aria-label="Создать новый" name="text" value={this.state.text} onChange={this.handleChange} />
+                <button className="btn list" aria-label="Создать новый" onClick={this.handleSubmit}>+</button>
             </form>
+        </div>
+            
         );
     }
 }

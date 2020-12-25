@@ -35,15 +35,26 @@ export default class TodoList extends React.Component {
         }));
     }
 
+    removeAllTodosThatAreComplete = () => {
+        this.setState(state => ({
+          todos: state.todos.filter(todo => !todo.complete)
+        }));
+      };
+
     render(){
         return(
-            <div>
-                <TodoForm onSubmit={this.addTodo}/>
+            <div className="todo-list">
+                <div className="todo-header">
+                    CringeDo
+                </div>
                 {this.state.todos.map(todo => (
                     <Todo key={todo.id} toggleComplete={() => this.toggleComplete(todo.id)} handleDelete={() => this.handleDelete(todo.id)} todo={todo} />
                 ))}
+                <TodoForm onSubmit={this.addTodo}/>
                 <div>
-                    {JSON.stringify(this.state.todos)}
+                    <button className="btn delete" onClick={this.removeAllTodosThatAreComplete}>
+                        Удалить выполненные задачи
+                    </button>
                 </div>
             </div>
         )

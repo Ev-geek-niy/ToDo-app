@@ -1,9 +1,13 @@
 import React from "react";
 
 export default props => (
-    <div>
-        <div>{props.todo.text}</div>
-        <button onClick={props.toggleComplete}>✅</button>
-        <button onClick={props.handleDelete}>❌</button>
+    <div className="task">
+        <input type="checkbox" />
+        <label>
+            <span className="custom-checkbox" onClick={props.toggleComplete}></span>
+            <div  style={{ textDecoration: props.todo.complete ? "line-through" : "" }} onClick={props.toggleComplete}>
+                {props.todo.text}
+            </div>
+        </label>
     </div>
 );
